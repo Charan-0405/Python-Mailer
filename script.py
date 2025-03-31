@@ -21,6 +21,8 @@ def send_mail(workflow_name,repo_name,workflow_run_id):
         server.sendmail(sender_email,reciver_email,text)
         server.quit()
         print('Email sent succesfully')
-    except Excetion as e:
-        print(f'Error:{e}')
-send_mail(os.getenv('WORKFLOW_NAME'),os.getenv('REPO_NAME'),os.getenv('WORKFLOW_RUN_ID'))
+    except Exception as e:
+        print(f'Error: {e}')
+
+
+send_mail(os.getenv('WORKFLOW_NAME'), os.getenv('REPO_NAME'), os.getenv('WORKFLOW_RUN_ID'))
