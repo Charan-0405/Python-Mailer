@@ -9,7 +9,7 @@ def send_mail(workflow_name,repo_name,workflow_run_id):
     subject = f"Workflow {workflow_name} failed for repo {repo_name}"
     body = f"Hi, the workflow {workflow_name} failed for the repo {repo_name}. Please check the logs for more details.\nMore Details: \nRun_ID: {workflow_run_id}"
     msg=MIMEMultipart()
-    msg['From']=send_email
+    msg['From']=sender_email
     msg['To']=reciver_email
     msg['Subject'] = subject
     msg.attach(MIMEText(body,'plain'))
@@ -18,7 +18,7 @@ def send_mail(workflow_name,repo_name,workflow_run_id):
         server.starttls()
         server.login(sender_email,sender_password)
         text=msg.as_string()
-        server.sendmail(send_email,reciver_email,text)
+        server.sendmail(sender_email,reciver_email,text)
         server.quit()
         print('Email sent succesfully')
     except Excetion as e:
