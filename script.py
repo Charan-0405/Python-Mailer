@@ -7,9 +7,9 @@ def send_mail(workflow_name,repo_name,workflow_run_id):
     sender_password=os.getenv('SENDER_PASSWORD')
     reciver_email=os.getenv('RECIVER_EMAIL')
 
-    subject=f"workflow {workflow_name} failed for repo {repo_name}"
-    body=f"Hi,Iam Charan the workflow {workflow_name}failed for the repo {repo_name} please check the for more details\n more details:\n:
-    \n {workflow_run_id}. "
+    subject = f"workflow {workflow_name} failed for repo {repo_name}"
+    body = f"Hi,Iam Charan the workflow {workflow_name}failed for the repo {repo_name} please check the for more details\n more details:\n:
+    \n {workflow_run_id}."
 
     msg=MIMEMultipart()
     msg['From']=send_email
